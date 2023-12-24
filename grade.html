@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probability of getting hit in the butt</title>
+    <style>
+        
+        /* CSS */
+        .button-40 {
+          background-color: #111827;
+          border: 1px solid transparent;
+          border-radius: .75rem;
+          box-sizing: border-box;
+          color: #FFFFFF;
+          cursor: pointer;
+          flex: 0 0 auto;
+          font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+          font-size: 1.125rem;
+          font-weight: 600;
+          line-height: 1.5rem;
+          padding: .75rem 1.2rem;
+          text-align: center;
+          text-decoration: none #6B7280 solid;
+          text-decoration-thickness: auto;
+          transition-duration: .2s;
+          transition-property: background-color,border-color,color,fill,stroke;
+          transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
+          user-select: none;
+          -webkit-user-select: none;
+          touch-action: manipulation;
+          width: auto;
+        }
+        
+        .button-40:hover {
+          background-color: #374151;
+        }
+        
+        .button-40:focus {
+          box-shadow: none;
+          outline: 2px solid transparent;
+          outline-offset: 2px;
+        }
+        
+        @media (min-width: 768px) {
+          .button-40 {
+            padding: .75rem 1.5rem;
+          }
+        }
+            </style>
+</head>
+<body>
+    <script>
+
+            let grade = +prompt('Яка твоя оцінка?', '');
+            switch (grade) {
+                case 1:
+                case 2: 
+                case 3:
+                case 4:
+                    document.write("Ти з 99% ймовірністю отримаєш по дупі! Тебе вже майже нічого не врятує!");
+                    break;
+                case 5:
+                case 6: 
+                case 7:
+                case 8:
+                    document.write("Ти на грані! Рекомендую почистити дом, інакше...");
+                    break;
+                case 9:
+                case 10: 
+                case 11:
+                case 12:
+                    document.write("Молодець! Ти виживеш (сьогодні)!");
+                    break;
+                case 0:
+                    document.write("До побачення.");
+                    break;
+                default:
+                    alert("Не буває такої оцінки.");
+                    break;
+            }
+    </script>
+
+<br><br><a href=index.html target="_blank"><button class="button-40" role="button">На головну</button></a><br><br>
+
+</body>
+</html>

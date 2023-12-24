@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadratic equations</title>
+    <style>
+        
+        /* CSS */
+        .button-40 {
+          background-color: #111827;
+          border: 1px solid transparent;
+          border-radius: .75rem;
+          box-sizing: border-box;
+          color: #FFFFFF;
+          cursor: pointer;
+          flex: 0 0 auto;
+          font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+          font-size: 1.125rem;
+          font-weight: 600;
+          line-height: 1.5rem;
+          padding: .75rem 1.2rem;
+          text-align: center;
+          text-decoration: none #6B7280 solid;
+          text-decoration-thickness: auto;
+          transition-duration: .2s;
+          transition-property: background-color,border-color,color,fill,stroke;
+          transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
+          user-select: none;
+          -webkit-user-select: none;
+          touch-action: manipulation;
+          width: auto;
+        }
+        
+        .button-40:hover {
+          background-color: #374151;
+        }
+        
+        .button-40:focus {
+          box-shadow: none;
+          outline: 2px solid transparent;
+          outline-offset: 2px;
+        }
+        
+        @media (min-width: 768px) {
+          .button-40 {
+            padding: .75rem 1.5rem;
+          }
+        }
+            </style>
+</head>
+<body>
+    <script>
+        let type = prompt("Введіть тип квадратного рівняння. (A + B + C, або          C * (A + B), або C * (B + A). Якщо що, A це х^2, B це x, а C це вільний член)", "Використовуйте лише A, B, C, (, ), +, -, *, / та пробіли.");
+        let a = +prompt("Угу. Тепер введіть коефіцієнт A. Не забувайте про мінуси (якщо вони є)!", "1"); //                           ||
+        let b = +prompt('Введіть коефіцієнт B. Знов, не забувайте про мінуси (якщо B у рівнянні нема введіть "0")');
+        let c = +prompt('Введіть вільний член. Мінуси! (якщо C у рівнянні нема введіть "0")');
+        let r = +prompt("Введіть результат (вільний член): ", "0");
+
+        if (type == "A + B + C"){ //Перевірка на тип A + B + C
+            if (r === 0){
+                let D = b * b - (4 * a * c);
+                if (a === 0) {
+                    document.write("Коефіцієнт A не може дорівнювати нулю. Перевірте правильність написання. <br> PS: якщо перед x&sup2; або x нічого немає, отже, там невидима одиниця.");
+                } else if (D < 0 && a != 1) {
+                    document.write("У рівнення " + a + "x&sup2; + " + b + "x + " + c + " = 0 нема коренів");
+                } else if (D === 0 && a != 1) {
+                    let x = -b / (2 * a);
+                    document.write("У рівнення " + a + "x&sup2; + " + b + "x + " + c + " = 0 один корінь, це " + x + ". Дискримінант= " + D);
+                } else if (D > 0 && a != 1) {
+                    let x1 = (-b + Math.sqrt(D)) / (2 * a);
+                    let x2 = (-b - Math.sqrt(D)) / (2 * a);
+                    document.write("У рівнення " + a + "x&sup2; + " + b + "x + " + c + " = 0 два корені, це " + x1 + " та " + x2 + ". Дискримінант= " + D);
+                } else if (D < 0 && a === 1) {
+                    document.write("У рівнення x&sup2; + " + b + "x + " + c + " = 0 нема коренів");
+                } else if (D === 0 && a === 1) {
+                    let x = -b / (2 * a);
+                    document.write("У рівнення x&sup2; + " + b + "x + " + c + " = 0 один корінь, це " + x + ". Дискримінант= " + D);
+                } else if (D > 0 && a === 1) {
+                    let x1 = (-b + Math.sqrt(D)) / (2 * a);
+                    let x2 = (-b - Math.sqrt(D)) / (2 * a);
+                    document.write("У рівнення x&sup2; + " + b + "x + " + c + " = 0 два корені, це " + x1 + " та " + x2 + ". Дискримінант= " + D);
+                }
+            } else if (r != 0){
+                c = c - r;
+                r = 0;
+                let D = b * b - (4 * a * c);
+
+                if (a === 0) {
+                    document.write("Коефіцієнт A не може дорівнювати нулю. Перевірте правильність написання. <br> PS: якщо перед x&sup2; або x нічого немає, отже, там невидима одиниця.");
+                } else if (D < 0 && a != 1) {
+                    document.write("У рівнення " + a + "x&sup2; + " + b + "x + " + c + " = 0 нема коренів");
+                } else if (D === 0 && a != 1) {
+                    let x = -b / (2 * a);
+                    document.write("У рівнення " + a + "x&sup2; + " + b + "x + " + c + " = 0 один корінь, це " + x + ". Дискримінант= " + D);
+                } else if (D > 0 && a != 1) {
+                    let x1 = (-b + Math.sqrt(D)) / (2 * a);
+                    let x2 = (-b - Math.sqrt(D)) / (2 * a);
+                    document.write("У рівнення " + a + "x&sup2; + " + b + "x + " + c + " = 0 два корені, це " + x1 + " та " + x2 + ". Дискримінант= " + D);
+                } else if (D < 0 && a === 1) {
+                    document.write("У рівнення x&sup2; + " + b + "x + " + c + " = 0 нема коренів");
+                } else if (D === 0 && a === 1) {
+                    let x = -b / (2 * a);
+                    document.write("У рівнення x&sup2; + " + b + "x + " + c + " = 0 один корінь, це " + x + ". Дискримінант= " + D);
+                } else if (D > 0 && a === 1) {
+                    let x1 = (-b + Math.sqrt(D)) / (2 * a);
+                    let x2 = (-b - Math.sqrt(D)) / (2 * a);
+                    document.write("У рівнення x&sup2; + " + b + "x + " + c + " = 0 два корені, це " + x1 + " та " + x2 + ". Дискримінант= " + D);
+                }
+            }
+        } else if (type == "C * (A + B)"){ //Новий if, новий мир. --------------------------------
+            if (r === 0){
+                a1= a*c;
+                b1= b*c;
+                c1= 0;
+                let D = b1 * b1;
+            
+                if (a === 0) {
+                    document.write("Коефіцієнт A не може дорівнювати нулю. Перевірте правильність написання. <br> PS: якщо перед x&sup2; або x нічого немає, отже, там невидима одиниця.");
+                } else if (D < 0 && a != 1) {
+                    document.write("У рівнення " + c + " * (" + a + "x&sup2; + " + b + "x) = 0 нема коренів");
+                } else if (D === 0 && a != 1) {
+                    let x = -b1 / (2 * a1);
+                    document.write("У рівнення " + c + " * (" + a + "x&sup2; + " + b + "x) = 0 один корінь, це " + x + ". Дискримінант= " + D);
+                } else if (D > 0 && a != 1) {
+                    let x1 = (-b1 + Math.sqrt(D)) / (2 * a1);
+                    let x2 = (-b1 - Math.sqrt(D)) / (2 * a1);
+                    document.write("У рівнення " + c + " * (" + a + "x&sup2; + " + b + "x) = 0 два корені, це " + x1 + " та " + x2 + ". Дискримінант= " + D);
+                } else if (D < 0 && a === 1) {
+                    document.write("У рівнення " + c + " * (x&sup2; + " + b + "x) = 0 нема коренів");
+                } else if (D === 0 && a === 1) {
+                    let x = -b1 / (2 * a1);
+                    document.write("У рівнення " + c + " * (x&sup2; + " + b + "x) = 0 один корінь, це " + x + ". Дискримінант= " + D);
+                } else if (D > 0 && a === 1) {
+                    let x1 = (-b1 + Math.sqrt(D)) / (2 * a1);
+                    let x2 = (-b1 - Math.sqrt(D)) / (2 * a1);
+                    document.write("У рівнення " + c + " * (x&sup2; + " + b + "x) = 0 два корені, це " + x1 + " та " + x2 + ". Дискримінант= " + D);
+                }
+            } else if (r != 0){
+                a1= a*c;
+                b1= b*c;
+                c1= 0 - r;
+                r= 0;
+                let D = b1 * b1 - (4 * a1 * c1);
+
+                if (a === 0) {
+                    document.write("Коефіцієнт A не може дорівнювати нулю. Перевірте правильність написання. <br> PS: якщо перед x&sup2; або x нічого немає, отже, там невидима одиниця.");
+                } else if (D < 0 && a != 1) {
+                    document.write("У рівнення " + c + " * (" + a + "x&sup2; + " + b + "x) = 0 нема коренів");
+                } else if (D === 0 && a != 1) {
+                    let x = -b1 / (2 * a1);
+                    document.write("У рівнення " + c + " * (" + a + "x&sup2; + " + b + "x) = 0 один корінь, це " + x + ". Дискримінант= " + D);
+                } else if (D > 0 && a != 1) {
+                    let x1 = (-b1 + Math.sqrt(D)) / (2 * a1);
+                    let x2 = (-b1 - Math.sqrt(D)) / (2 * a1);
+                    document.write("У рівнення " + c + " * (" + a + "x&sup2; + " + b + "x) = 0 два корені, це " + x1 + " та " + x2 + ". Дискримінант= " + D);
+                } else if (D < 0 && a === 1) {
+                    document.write("У рівнення " + c + " * (x&sup2; + " + b + "x) = 0 нема коренів");
+                } else if (D === 0 && a === 1) {
+                    let x = -b1 / (2 * a1);
+                    document.write("У рівнення " + c + " * (x&sup2; + " + b + "x) = 0 один корінь, це " + x + ". Дискримінант= " + D);
+                } else if (D > 0 && a === 1) {
+                    let x1 = (-b1 + Math.sqrt(D)) / (2 * a1);
+                    let x2 = (-b1 - Math.sqrt(D)) / (2 * a1);
+                    document.write("У рівнення " + c + " * (x&sup2; + " + b + "x) = 0 два корені, це " + x1 + " та " + x2 + ". Дискримінант= " + D);
+                }
+            }
+        } else if (type == "C (B + A)"){ //Ще один if. --------------------------------
+            if (r === 0){
+                a1= a*c;
+                b1= b*c;
+                c1= 0;
+                let D = b1 * b1;
+            
+                if (a === 0) {
+                    document.write("Коефіцієнт A не може дорівнювати нулю. Перевірте правильність написання. <br> PS: якщо перед x&sup2; або x нічого немає, отже, там невидима одиниця.");
+                } else if (D < 0 && a != 1) {
+                    document.write("У рівнення " + c + " * (" + b + "x + " + a + "x&sup2;) = 0 нема коренів");
+                } else if (D === 0 && a != 1) {
+                    let x = -b1 / (2 * a1);
+                    document.write("У рівнення " + c + " * (" + b + "x + " + a + "x&sup2;) = 0 один корінь, це " + x + ". Дискримінант= " + D);
+                } else if (D > 0 && a != 1) {
+                    let x1 = (-b1 + Math.sqrt(D)) / (2 * a1);
+                    let x2 = (-b1 - Math.sqrt(D)) / (2 * a1);
+                    document.write("У рівнення " + c + " * (" + b + "x + " + a + "x&sup2;) = 0 два корені, це " + x1 + " та " + x2 + ". Дискримінант= " + D);
+                } else if (D < 0 && a === 1) {
+                    document.write("У рівнення " + c + " * (" + b + "x + x&sup2;) = 0 нема коренів");
+                } else if (D === 0 && a === 1) {
+                    let x = -b1 / (2 * a1);
+                    document.write("У рівнення " + c + " * (" + b + "x + x&sup2;) = 0 один корінь, це " + x + ". Дискримінант= " + D);
+                } else if (D > 0 && a === 1) {
+                    let x1 = (-b1 + Math.sqrt(D)) / (2 * a1);
+                    let x2 = (-b1 - Math.sqrt(D)) / (2 * a1);
+                    document.write("У рівнення " + c + " * (" + b + "x + x&sup2;) = 0 два корені, це " + x1 + " та " + x2 + ". Дискримінант= " + D);
+                }
+            } else if (r != 0){
+                a1= a*c;
+                b1= b*c;
+                c1= 0 - r;
+                r= 0;
+                let D = b1 * b1 - (4 * a1 * c1);
+
+                if (a === 0) {
+                    document.write("Коефіцієнт A не може дорівнювати нулю. Перевірте правильність написання. <br> PS: якщо перед x&sup2; або x нічого немає, отже, там невидима одиниця.");
+                } else if (D < 0 && a != 1) {
+                    document.write("У рівнення " + c + " * (" + b + "x + " + a + "x&sup2;) = 0 нема коренів");
+                } else if (D === 0 && a != 1) {
+                    let x = -b1 / (2 * a1);
+                    document.write("У рівнення " + c + " * (" + b + "x + " + a + "x&sup2;) = 0 один корінь, це " + x + ". Дискримінант= " + D);
+                } else if (D > 0 && a != 1) {
+                    let x1 = (-b1 + Math.sqrt(D)) / (2 * a1);
+                    let x2 = (-b1 - Math.sqrt(D)) / (2 * a1);
+                    document.write("У рівнення " + c + " * (" + b + "x + " + a + "x&sup2;) = 0 два корені, це " + x1 + " та " + x2 + ". Дискримінант= " + D);
+                } else if (D < 0 && a === 1) {
+                    document.write("У рівнення " + c + " * (" + b + "x + x&sup2;) = 0 нема коренів");
+                } else if (D === 0 && a === 1) {
+                    let x = -b1 / (2 * a1);
+                    document.write("У рівнення " + c + " * (" + b + "x + x&sup2;) = 0 один корінь, це " + x + ". Дискримінант= " + D);
+                } else if (D > 0 && a === 1) {
+                    let x1 = (-b1 + Math.sqrt(D)) / (2 * a1);
+                    let x2 = (-b1 - Math.sqrt(D)) / (2 * a1);
+                    document.write("У рівнення " + c + " * (" + b + "x + x&sup2;) = 0 два корені, це " + x1 + " та " + x2 + ". Дискримінант= " + D);
+                }
+            }
+        } else if (type == null){
+            document.write("Я не домовив.")
+        } else {
+            document.write('Перевірте правильність введення.')
+        }
+    </script>
+    <br><br><a href=index.html target="_blank"><button class="button-40" role="button">На головну</button></a><br><br>
+</body>
+</html>
